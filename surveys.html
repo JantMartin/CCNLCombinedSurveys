@@ -209,7 +209,14 @@
 
         <div class="tab" id="CTQID"> <h1>CTQ Form</h1>
             <p> In this survey you will be prompted to answer a series of questions regarding your experiences during 
-                childhood including <strong>childhood trauma</strong>. Please answer every question </p>
+                childhood including <strong>childhood trauma</strong>. Please answer every question. </p>
+
+        </div>
+
+        <div class="tab" id="QUICID"> <h1>QUIC Form</h1>
+            <p> In this survey you will be prompted to answer a series of questions about your <strong>childhood experiences</strong>. 
+                Parents refer to whoever filled a caregiver role for you (e.g. biological parents, grandparents, foster parents, etc.).
+                This could be one person, or multiple people. Please answer every question. </p>
 
         </div>
 
@@ -238,6 +245,7 @@
     <script src="MFQ.js"></script>
     <script src="AUDIT.js"></script>
     <script src="CTQ.js"></script>
+    <script src="QUIC.js"></script>
     <script>
     
         // Generate HTML for each question
@@ -288,6 +296,7 @@
             document.getElementById('SPSRQID').innerHTML += questionHTML;
         });
 
+        
         var MFQprompt1HTML = 
             `<h3>How often do these present a problem to you?</h3><p> </p>
             <p style = "word-spacing: 20px"><strong>major problems some minor problems no problems</strong></p>
@@ -607,6 +616,50 @@
             document.getElementById('CTQID').innerHTML += questionHTML;
         });
 
+        var QUICprompt1HTML = 
+            `<h3>Typical or average experiences from <u>earliest memory to age 12</u>...</h3>`
+        
+            document.getElementById('QUICID').innerHTML += QUICprompt1HTML
+
+        QUICQuestionsMatrix1.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-0" name="choice">Yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-1" name="choice">No</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        var QUICprompt2HTML = 
+            `<h3>Typical or average experiences from <u>earliest memory to age 18</u>...</h3>`
+        
+            document.getElementById('QUICID').innerHTML += QUICprompt2HTML
+
+        QUICQuestionsMatrix2.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-0" name="choice">Yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-1" name="choice">No</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+        
     </script>
     <script>
 
