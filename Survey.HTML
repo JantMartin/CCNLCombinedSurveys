@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0">
+	<title>
+		Combined CCNL Survey List 
+	</title>
+
+	<style>
+		/* Styling the Body element 
+		i.e. Color, Font, Alignment */
+		body {
+			background-color: #9a8fff;
+			font-family: Verdana;
+			text-align: center;
+		}
+
+		/* Styling the Form (Color, Padding, Shadow) */
+		form {
+			background-color: #fff;
+			max-width: 500px;
+			margin: 50px auto;
+			padding: 30px 20px;
+			box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		/* Styling form-control Class */
+		.form-control {
+			text-align: left;
+			margin-bottom: 25px;
+		}
+
+		/* Styling form-control Label */
+		.form-control label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		/* Styling form-control input, 
+		select, textarea */
+		.form-control input,
+		.form-control select,
+		.form-control textarea {
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			padding: 10px;
+			display: block;
+			width: 95%;
+		}
+
+		/* Styling form-control Radio 
+		button and Checkbox */
+		.form-control input[type="radio"],
+		.form-control input[type="checkbox"] {
+			display: inline-block;
+			width: auto;
+		}
+
+        .tab{
+            display:none
+        }
+
+		/* Styling Button */
+		button {
+			background-color: #05c46b;
+			border: 1px solid #777;
+			border-radius: 2px;
+			font-family: inherit;
+			font-size: 21px;
+			display: block;
+			width: 30%;
+			margin-top: 50px;
+			margin-bottom: 20px;
+            margin-left: 20px;
+            float: right
+		}
+
+       .Next {
+            display: block
+        }
+
+        .ThankYou {
+            display: none
+        }
+	</style>
+</head>
+
+<body>
+
+	<!-- Create Form -->
+	<form id="form">
+        <div class = "tab"><h1>Combined Survey Form</h1>
+            </style>
+            <div class="form-control">
+                <label for="age" id="label-age">
+                    Age
+                </label>
+
+                <!-- Input Type Text -->
+                <input type="text" id="age"
+                    placeholder="Enter your age" />
+            </div>
+
+            <div class="form-control">
+                <label for="role" id="label-role">
+                    Education Level?
+                </label>
+
+                <!-- Dropdown options -->
+                <select name="role" id="role">
+                    <option value="No Highschool Degree">No Highschool Degree</option>
+                    <option value="Associates Degree">Associates Degree</option>
+                    <option value="Some college">Some college</option>
+                    <option value="College Degree">College Degree</option>
+                    <option value="Graduate Degree">Graduate Degree</option>
+                </select>
+            </div>
+
+            <div class="form-control">
+                <label>Surveys to take
+                    <small>(Check all that apply)</small>
+                </label>
+                <!-- Input Type Checkbox -->
+                <label for="inp-1">
+                    <input type="checkbox" name="inp">SCL-90
+                    </input>
+                </label>
+                <label for="inp-2">
+                    <input type="checkbox" name="inp">SPSRQ
+                    </input>
+                </label>
+                <label for="inp-3">
+                    <input type="checkbox" name="inp">MFQ
+                    </input>
+                </label>
+                <label for="inp-4">
+                    <input type="checkbox" name="inp">AUDIT
+                    </input>
+                </label>
+                <label for="inp-5">
+                    <input type="checkbox" name="inp">CTQ
+                    </input>
+                </label>
+                <label for="inp-6">
+                    <input type="checkbox" name="inp">QUIC
+                    </input>
+                </label>
+                <label for="inp-7">
+                    <input type="checkbox" name="inp">HONC
+                </label>
+            
+            </div>
+        </div>
+
+        <!-- This is the first tab deparated by a new div class; All page div classes should be "tab" -->
+
+        <div class = "tab" id="SCL90ID"> <h1>SCL-90 Form</h1>
+
+            <p> Below is a list of problems and complaints that people sometimes have. 
+                Please read each one carefully. After you have done so, select one of 
+                the numbered descriptors that best describes <strong> HOW MUCH THAT 
+                PROBLEM HAS BOTHERED OR DISTRESSED YOU DURING THE PAST WEEK, INCLUDING 
+                TODAY. </strong> Circle the number in the space to the right of he problem and do 
+                not skip any items.
+            </p>
+            <p></p>
+            <h2>How much were you bothered by: </h2>
+            <hr />
+            <p></p>
+
+        </div>
+
+        <!-- All the questions on each page is covered in the script just put a unique ID to call it -->
+
+        <div class="tab" id="SPSRQID"> <h1>SPSRQ Form</h1> 
+            <p> In this survey you will be prompted to
+                answer a series of questions with <strong>yes</strong> or 
+                <strong>no</strong>. Please answer every question.
+            </p>
+            <hr  />
+        </div>
+
+
+        <!-- MFQ is different because it has different <p> questions which we need to compile (see MFQ.js) -->
+        <div class="tab" id="MFQID"> <h1>MFQ Form</h1> 
+            <p> In this survey you will be prompted to
+                answer a series of questions regarding how you remember infromation.
+                Choose a number between <strong>1 and 7</strong> that best reflects your judgement about
+                your memory. Please answer every question.</p>
+            <p></p>
+            <hr  />
+        </div>
+
+        <div class="tab" id="AUDITID"> <h1>AUDIT Form</h1>
+            <p> In this survey you will be prompted to answer a series of questions 
+                related to your <strong>alcohol usage</strong> and <strong>subsequent behavior</strong> 
+                while under the influence. Please answer every question. </p>
+        
+        </div>
+
+        <div class="tab" id="CTQID"> <h1>CTQ Form</h1>
+            <p> In this survey you will be prompted to answer a series of questions regarding your experiences during 
+                childhood including <strong>childhood trauma</strong>. Please answer every question </p><hr /> <p></p>
+
+        </div>
+
+        <div class="tab" id="QUICID"> <h1>QUIC Form</h1>
+            <p> This set of questions asks about your <strong>childhood experiences</strong>. When we say parents, we mean
+                whoever in your life fills that role for you (e.g. biological parents, step parents, grandparents, foster
+                parents). This could be one person, or this could be multiple people.</p>
+            <p><strong>Please answer these questions based on your typical or average experiences.</strong></p><hr />
+            <h3> Typical or average experiences from earliest memory to age 12...</h3><hr />
+
+        </div>
+
+        <div class="tab" id="HONCID"> <h1>HONC Form</h1>
+            <p> In this survey you will be prompted to answer a series of questions regarding your experiences with 
+                <strong>Nicotene</strong>. Please answer every question </p><hr /> <p></p>
+
+        </div>
+
+        <!-- Using a diff div class ID for thank you but probably not necesary -->
+        <div class = "ThankYou">
+            <h1> Thank you for your participation!</h1>
+            <h3>Please let the researcher know you have completed the surveys </h3>
+        </div>
+
+		<!-- This is the HTML for the button ; the nextPrev() is the function called in the script -->
+        <div class = "Next" style = "overflow:auto;" style = "float:right;">
+                <button type="button" id="nextBtn" value="next" onclick="nextPrev()">
+                    Next
+                </button>
+            </div>
+        </div>
+	</form>
+
+    <!-- That concludes the form ; now it is the scripts which are in JS -->
+
+    <!-- These first scripts call the JS files that contain the questions for each form 
+        At some point we could probably make the script its own JS file for clarity -->
+
+    <script src="SCL90.js"></script>
+    <script src="SPSRQ.js"></script>
+    <script src="MFQ.js"></script>
+    <script src="AUDIT.js"></script>
+    <script src="CTQ.js"></script>
+    <script src="QUIC.js"></script>
+    <script src="HONC.js"></script>
+    <script>
+    
+        // Generate HTML for each question
+
+        // This is where the questions are generated ; the question names are in js and the
+        // answer choices are written inside the function ; all that needs to be changed per
+        // form is the Matrix name (acc to how it is in the JS) and the element ID it is calling
+
+        SCL90QuestionsMatrix.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="SCL90Form">
+                    <label id="SCLQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-0-${index}" name="SCLchoice-${index}">0</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-1-${index}" name="SCLchoice-${index}">1</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="choice-2-${index}" name="SCLchoice-${index}">2</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="choice-3-${index}" name="SCLchoice-${index}">3</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="choice-4-${index}" name="SCLchoice-${index}">4</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('SCL90ID').innerHTML += questionHTML;
+        });
+
+        SPSRQQuestionsMatrix.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name = "SPSRQForm">
+                    <label id="SPSRQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes-${index}" name="SPSRQchoice-${index}">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no-${index}" name="SPSRQchoice-${index}">no</input>
+                </div>
+            `;
+            document.getElementById('SPSRQID').innerHTML += questionHTML;
+
+
+        });
+
+        var MFQprompt1HTML = 
+            `<h3>How is your memory compared to the way it was...</h3><p> </p>
+            <p style = "word-spacing: 40px"><strong>much worse same much better</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+
+        document.getElementById('MFQID').innerHTML += MFQprompt1HTML
+
+        MFQQuestionsMatrix1.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name = "MFQForm1">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="1choice-0-${index}" name="MFQchoice1-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="1choice-1-${index}" name="MFQchoice1-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="1choice-2-${index}" name="MFQchoice1-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="1choice-3-${index}" name="MFQchoice1-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="1choice-4-${index}" name="MFQchoice1-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="1choice-5-${index}" name="MFQchoice1-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="1choice-6-${index}" name="MFQchoice1-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt2HTML = 
+            `<hr /><h3>How often do remembering these present a problem to you?</h3><p> </p>
+            <p style = "word-spacing: 20px"><strong>major problems some minor problems no problems</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+
+        document.getElementById('MFQID').innerHTML += MFQprompt2HTML
+
+        MFQQuestionsMatrix2.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name ="MFQForm2">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="2choice-0-${index}" name="MFQchoice2-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="2choice-1-${index}" name="MFQchoice2-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="2choice-2-${index}" name="MFQchoice2-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="2choice-3-${index}" name="MFQchoice2-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="2choice-4-${index}" name="MFQchoice2-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="2choice-5-${index}" name="MFQchoice2-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="2choice-6-${index}" name="MFQchoice2-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt3HTML = 
+            `<hr />
+            <h3>As you are reading a novel, how often do you have trouble remembering what you have read...</h3><p> </p>
+            <p style = "word-spacing: 20px"><strong>major problems some minor problems no problems</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />
+            `
+        document.getElementById('MFQID').innerHTML += MFQprompt3HTML
+
+        MFQQuestionsMatrix3.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="MFQForm3">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="3choice-0-${index}" name="MFQchoice3-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="3choice-1-${index}" name="MFQchoice3-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="3choice-2-${index}" name="MFQchoice3-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="3choice-3-${index}" name="MFQchoice3-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="3choice-4-${index}" name="MFQchoice3-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="3choice-5-${index}" name="MFQchoice3-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="3choice-6-${index}" name="MFQchoice3-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt4HTML = 
+            `<hr /><h3>When you are reading a newspaper or magazine article, 
+            how often do you have trouble remembering what you have read...</h3><p> </p>
+            <p style = "word-spacing: 20px"><strong>major problems some minor problems no problems</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+
+        document.getElementById('MFQID').innerHTML += MFQprompt4HTML
+
+        MFQQuestionsMatrix4.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="MFQForm4">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="4choice-0-${index}" name="MFQchoice4-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="4choice-1-${index}" name="MFQchoice4-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="4choice-2-${index}" name="MFQchoice4-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="4choice-3-${index}" name="MFQchoice4-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="4choice-4-${index}" name="MFQchoice4-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="4choice-5-${index}" name="MFQchoice4-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="4choice-6-${index}" name="MFQchoice4-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt5HTML = 
+            `<hr /><h3>How well do you remember things which occurred...</h3><p> </p>
+            <p style = "word-spacing: 30px"><strong>very bad fair very good</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+        document.getElementById('MFQID').innerHTML += MFQprompt5HTML
+
+        MFQQuestionsMatrix5.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="MFQForm5">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="5choice-0-${index}" name="MFQchoice5-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="5choice-1-${index}" name="MFQchoice5-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="5choice-2-${index}" name="MFQchoice5-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="5choice-3-${index}" name="MFQchoice5-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="5choice-4-${index}" name="MFQchoice5-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="5choice-5-${index}" name="MFQchoice5-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="5choice-6-${index}" name="MFQchoice5-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt6HTML = 
+            `<hr /><h3>When you actually forget in these situations, how serious of a problem
+                would it be to forget these?</h3><p> </p>
+            <p style = "word-spacing: 20px"><strong>major problems some minor problems no problems</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+        document.getElementById('MFQID').innerHTML += MFQprompt6HTML
+
+        MFQQuestionsMatrix6.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="MFQForm6">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="6choice-0-${index}" name="MFQchoice6-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="6choice-1-${index}" name="MFQchoice6-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="6choice-2-${index}" name="MFQchoice6-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="6choice-3-${index}" name="MFQchoice6-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="6choice-4-${index}" name="MFQchoice6-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="6choice-5-${index}" name="MFQchoice6-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="6choice-6-${index}" name="MFQchoice6-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        var MFQprompt7HTML = 
+            `<hr /><h3>How often do you use these techniques to remind yourself about things?</h3><p> </p>
+            <p style = "word-spacing: 80px"><strong>always sometimes never</strong></p>
+            <p style = "word-spacing: 65px">1 2 3 4 5 6 7</p><hr />`
+        document.getElementById('MFQID').innerHTML += MFQprompt7HTML
+
+        MFQQuestionsMatrix7.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control" name="MFQForm7">
+                    <label id="MFQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="7choice-0-${index}" name="MFQchoice7-${index}">1</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="7choice-1-${index}" name="MFQchoice7-${index}">2</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="7choice-2-${index}" name="MFQchoice7-${index}">3</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="7choice-3-${index}" name="MFQchoice7-${index}">4</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="7choice-4-${index}" name="MFQchoice7-${index}">5</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="7choice-5-${index}" name="MFQchoice7-${index}">6</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="7choice-6-${index}" name="MFQchoice7-${index}">7</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('MFQID').innerHTML += questionHTML;
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            AUDITQuestionsMatrix.forEach(function(questionObj, index) {
+                var questionHTML = `
+                    <div class="form-control" name = "AUDITForm">
+                        <label id="AUDITQuestions${index}">
+                            ${questionObj.question}
+                        </label>`;
+                questionObj.choices.forEach(function(choice, choiceIndex) {
+                    questionHTML += `
+                        <label for="choice-${index}-${choiceIndex}">
+                            <input type="radio" id="choice-${index}-${choiceIndex}" name="answer${index}" value="${choice}">${choice}</input>
+                        </label>`;
+                });
+                questionHTML += `
+                    </div>`; 
+                document.getElementById('AUDITID').innerHTML += questionHTML; 
+            });
+        });
+
+        CTQQuestionsMatrix.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control"> 
+                    <label id="CTQQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-0" name="choice">(1) Never True</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-1" name="choice">(2) Rarely True</input>
+                    </label>
+                    <label for="choice-2">
+                        <input type="radio" id="choice-2" name="choice">(3) Sometimes True</input>
+                    </label>
+                    <label for="choice-3">
+                        <input type="radio" id="choice-3" name="choice">(4) Often True</input>
+                    </label>
+                    <label for="choice-4">
+                        <input type="radio" id="choice-4" name="choice">(5) Very Often True</input>
+                    </label>
+                </div>
+            `;
+            document.getElementById('CTQID').innerHTML += questionHTML;
+        });
+
+        QUICQuestionsMatrix1.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        var QUICprompt2HTML = 
+            `<hr /><h3>Typical or average experiences from earliest memory to age 18...</h3><p> </p> <hr />`
+        document.getElementById('QUICID').innerHTML += QUICprompt2HTML
+
+        QUICQuestionsMatrix2.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        QUICQuestionsMatrix3.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        QUICQuestionsMatrix4.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        QUICQuestionsMatrix5.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="QUICQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('QUICID').innerHTML += questionHTML;
+        });
+
+        HONCQuestionsMatrix1.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="HONCQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+            `;
+            document.getElementById('HONCID').innerHTML += questionHTML;
+        });
+
+        var HONCquestionHTML = `
+            <hr /><h3>When you tried to stop smoking... (or, when you haven't used tobacco for a while...)</h3> <hr />
+            `
+        document.getElementById('HONCID').innerHTML += HONCquestionHTML;
+
+        HONCQuestionsMatrix2.forEach(function(question, index) {
+            var questionHTML = `
+                <div class="form-control">
+                    <label id="HONCQuestions${index}">
+                        ${question}
+                    </label>
+                    <label for="choice-0">
+                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                    </label>
+                    <label for="choice-1">
+                        <input type="radio" id="choice-no" name="choice">no</input>
+                </div>
+                `;
+            document.getElementById('HONCID').innerHTML += questionHTML;
+        });
+
+    </script>
+    <script>
+
+        // Set current tab to keep track of where the user is
+        var currentTab = 0
+
+        // Function that is identified below ; called to show present tab
+        showTab(currentTab);
+
+        // Initially was supposed to be for every tab but right now this is just
+        // showing the first tab hence the [0]
+
+        function showTab(n) {
+            var x = document.getElementsByClassName("tab")
+            x[0].style.display = "block"
+        }
+
+        var SurveyAnswers = {
+            SCL90: [],
+            SPSRQ: [],
+            MFQ: [],
+            AUDIT: []
+        }
+
+        // This is where things get complicated but essentially is programming the next button
+        function nextPrev() {
+
+            if (currentTab == 1){
+                var SCL90List = document.getElementsByName("SCL90Form")
+                var SCL90Choices = document.getElementsByName("SCLchoice-1")
+                for (i=0;i<SCL90List.length;i++) {
+                    for (j=0;j<SCL90Choices.length;j++) {
+                        if (document.getElementsByName(`SCLchoice-${i}`)[j].checked) {
+                            SurveyAnswers.SCL90[i] = j
+                }}}
+            }
+
+            if (currentTab == 2){
+                var SPSRQList = document.getElementsByName("SPSRQForm")
+                var SPSRQChoices = document.getElementsByName("SPSRQchoice-1")
+                for (i=0;i<SPSRQList.length;i++) {
+                    for (j=0;j<SPSRQChoices.length;j++) {
+                        if (document.getElementsByName(`SPSRQchoice-${i}`)[j].checked) {
+                            if (j == 0) {var ynIndex = 1} else {var ynIndex = 0}
+                            SurveyAnswers.SPSRQ[i] = ynIndex
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList1 = document.getElementsByName("MFQForm1")
+                var MFQChoices1 = document.getElementsByName("MFQchoice1-1")
+                for (i=0;i<MFQList1.length;i++) {
+                    for (j=0;j<MFQChoices1.length;j++) {
+                        if (document.getElementsByName(`MFQchoice1-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList2 = document.getElementsByName("MFQForm2")
+                var MFQChoices2 = document.getElementsByName("MFQchoice2-1")
+                for (i=0;i<MFQList2.length;i++) {
+                    for (j=0;j<MFQChoices2.length;j++) {
+                        if (document.getElementsByName(`MFQchoice2-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList3 = document.getElementsByName("MFQForm3")
+                var MFQChoices3 = document.getElementsByName("MFQchoice3-1")
+                for (i=0;i<MFQList3.length;i++) {
+                    for (j=0;j<MFQChoices3.length;j++) {
+                        if (document.getElementsByName(`MFQchoice3-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length+MFQChoices2.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList4 = document.getElementsByName("MFQForm4")
+                var MFQChoices4 = document.getElementsByName("MFQchoice4-1")
+                for (i=0;i<MFQList4.length;i++) {
+                    for (j=0;j<MFQChoices4.length;j++) {
+                        if (document.getElementsByName(`MFQchoice4-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length+MFQChoices2.length+MFQChoices3.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList5 = document.getElementsByName("MFQForm5")
+                var MFQChoices5 = document.getElementsByName("MFQchoice5-1")
+                for (i=0;i<MFQList5.length;i++) {
+                    for (j=0;j<MFQChoices5.length;j++) {
+                        if (document.getElementsByName(`MFQchoice5-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length+MFQChoices2.length+MFQChoices3.length+MFQChoices4.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList6 = document.getElementsByName("MFQForm6")
+                var MFQChoices6 = document.getElementsByName("MFQchoice6-1")
+                for (i=0;i<MFQList6.length;i++) {
+                    for (j=0;j<MFQChoices6.length;j++) {
+                        if (document.getElementsByName(`MFQchoice6-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length+MFQChoices2.length+MFQChoices3.length+MFQChoices4.length+MFQChoices5.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 3){
+                var MFQList7 = document.getElementsByName("MFQForm7")
+                var MFQChoices7 = document.getElementsByName("MFQchoice7-1")
+                for (i=0;i<MFQList7.length;i++) {
+                    for (j=0;j<MFQChoices7.length;j++) {
+                        if (document.getElementsByName(`MFQchoice7-${i}`)[j].checked) {
+                            SurveyAnswers.MFQ[i+MFQChoices1.length+MFQChoices2.length+MFQChoices3.length+MFQChoices4.length+MFQChoices5.length+MFQChoices6.length] = j + 1
+                }}}
+            }
+
+            if (currentTab == 4) {
+                function scoreAUDITSurvey() {
+                    // Define scoring criteria for each item of the AUDIT survey
+                    const scoringCriteria = [
+                        [0, 1, 2, 3, 4], // Item 1
+                        [0, 1, 2, 3, 4], // Item 2
+                        [0, 1, 2, 3, 4], // Items 3-8
+                        [0, 1, 2, 3, 4], // Item 9 (assumed to be scored similarly to Items 3-8)
+                        [0, 2, 4]        // Item 10
+                    ];
+
+                    // Loop through each question in the AUDIT survey
+                    for (var index = 0; index < AUDITQuestionsMatrix.length; index++) {
+                        // Select the radio buttons for the current question
+                        var questionRadioButtons = document.getElementsByName(`answer${index}`);
+                        
+                        // Loop through each radio button for the current question to find the selected choice
+                        var selectedChoiceIndex = -1;
+                        for (var i = 0; i < questionRadioButtons.length; i++) {
+                            if (questionRadioButtons[i].checked) {
+                                selectedChoiceIndex = i;
+                                break; // Exit loop once selected choice is found
+                            }
+                        }
+
+                        // If no choice is selected, assign a default score of 0
+                        if (selectedChoiceIndex === -1) {
+                            SurveyAnswers.AUDIT.push(0);
+                        } else {
+                            // Get the score for the selected choice based on the scoring criteria
+                            SurveyAnswers.AUDIT.push(scoringCriteria[index][selectedChoiceIndex]);
+                        }
+                    }
+                }
+            }
+            var x = document.getElementsByClassName("tab");
+
+            // Remove current tab when calling next
+            x[currentTab].style.display = "none";
+            
+            // Creating a variable with all the experiment checkboxes
+            var ele = document.getElementsByName('inp');
+
+            // This is the main loop that needs to be looked at
+            for (i=0;i<ele.length-currentTab;i++) {
+                
+                if (ele[currentTab + i].checked) {
+                    currentTab = currentTab + i + 1
+                    x[currentTab].style.display = "block"; 
+                    window.scrollTo(0,0)
+                    break;
+                } 
+            
+            } 
+            
+            // This portion is to see if any tab is checked ; if not then shows Thank You portion
+            var allDisplayedNone = true;
+            for (var i = 0; i < x.length; i++) {
+                if (x[i].style.display == "block"){
+                    allDisplayedNone = false;
+                    break;
+                }
+            }
+            
+            if (allDisplayedNone) {
+                document.getElementsByClassName("ThankYou")[0].style.display = "block"
+                document.getElementsByClassName("Next")[0].style.display="none"
+            }
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+
+
+
+</html>
