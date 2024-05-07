@@ -912,26 +912,48 @@
                     // Loop through each question
                     CTQQuestionsMatrix.forEach(function(question, index) {
                         var choice = parseInt(document.querySelector(`input[name="choice-${index}"]:checked`).value);
-                        
+
+                        // Adjust scoring based on selected choice
+                        var score;
+                        switch (choice) {
+                            case 1: // Never True
+                                score = 1;
+                                break;
+                            case 2: // Rarely True
+                                score = 2;
+                                break;
+                            case 3: // Sometimes True
+                                score = 3;
+                                break;
+                            case 4: // Often True
+                                score = 4;
+                                break;
+                            case 5: // Very Often True
+                                score = 5;
+                                break;
+                            default:
+                                score = 0; // Shouldn't happen
+                        }
+
                         // Reverse code for items marked with an asterisk
-                        if ([5, 7, 13, 19, 28].includes(index + 1)) {
-                            choice = 6 - choice;
+                        if ([5, 7, 13, 19, 28, 2, 26].includes(index + 1)) {
+                            score = 6 - score;
                         }
 
                         // Calculate scores for clinical scales
                         if ([3, 8, 14, 18, 25].includes(index + 1)) {
-                            emotionalAbuse += choice;
+                            emotionalAbuse += score;
                         } else if ([9, 11, 12, 15, 17].includes(index + 1)) {
-                            physicalAbuse += choice;
+                            physicalAbuse += score;
                         } else if ([20, 21, 23, 24, 27].includes(index + 1)) {
-                            sexualAbuse += choice;
+                            sexualAbuse += score;
                         } else if ([1, 2, 4, 6, 26].includes(index + 1)) {
-                            physicalNeglect += choice;
+                            physicalNeglect += score;
                         }
 
                         // Calculate scores for minimization/denial scale
                         if ([10, 16, 22].includes(index + 1)) {
-                            minimizationDenial += (choice === 5) ? 1 : 0;
+                            minimizationDenial += (score === 5) ? 1 : 0;
                         }
                     });
 
@@ -942,6 +964,7 @@
                     SurveyAnswers.CTQ.push(minimizationDenial);
                 }
             }
+
 
             if (currentTab == 7){
                 var HONCList1 = document.getElementsByName("HONCForm1")
