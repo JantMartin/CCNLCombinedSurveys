@@ -708,15 +708,15 @@
 
         HONCQuestionsMatrix1.forEach(function(question, index) {
             var questionHTML = `
-                <div class="form-control">
+                <div class="form-control" name = "HONCForm1">
                     <label id="HONCQuestions${index}">
                         ${question}
                     </label>
                     <label for="choice-0">
-                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                        <input type="radio" id="choice-yes-${index}" name="HONCchoice1-${index}">yes</input>
                     </label>
                     <label for="choice-1">
-                        <input type="radio" id="choice-no" name="choice">no</input>
+                        <input type="radio" id="choice-no-${index}" name="HONCchoice1-${index}">no</input>
                 </div>
             `;
             document.getElementById('HONCID').innerHTML += questionHTML;
@@ -729,15 +729,15 @@
 
         HONCQuestionsMatrix2.forEach(function(question, index) {
             var questionHTML = `
-                <div class="form-control">
+                <div class="form-control" name = "HONCForm2">
                     <label id="HONCQuestions${index}">
                         ${question}
                     </label>
                     <label for="choice-0">
-                        <input type="radio" id="choice-yes" name="choice">yes</input>
+                        <input type="radio" id="choice-yes-${index}" name="HONCchoice2-${index}">yes</input>
                     </label>
                     <label for="choice-1">
-                        <input type="radio" id="choice-no" name="choice">no</input>
+                        <input type="radio" id="choice-no-${index}" name="HONCchoice2-${index}">no</input>
                 </div>
                 `;
             document.getElementById('HONCID').innerHTML += questionHTML;
@@ -764,7 +764,10 @@
             SCL90: [],
             SPSRQ: [],
             MFQ: [],
-            AUDIT: []
+            AUDIT: [],
+            CTQ: [],
+            QUIC: [],
+            HONC: []
         }
 
         // This is where things get complicated but essentially is programming the next button
@@ -896,6 +899,29 @@
                     }
                 }
             }
+
+            if (currentTab == 7){
+                var HONCList1 = document.getElementsByName("HONCForm1")
+                var HONCChoices1 = document.getElementsByName("HONCchoice1-1")
+                for (i=0;i<HONCList1.length;i++) {
+                    for (j=0;j<HONCChoices1.length;j++) {
+                        if (document.getElementsByName(`HONCchoice1-${i}`)[j].checked) {
+                            if (j == 0) {var ynIndex = 1} else {var ynIndex = 0}
+                            SurveyAnswers.HONC[i] = ynIndex + 1 
+                }}}
+            }
+
+            if (currentTab == 7){
+                var HONCList2 = document.getElementsByName("HONCForm2")
+                var HONCChoices2 = document.getElementsByName("HONCchoice2-1")
+                for (i=0;i<HONCList2.length;i++) {
+                    for (j=0;j<HONCChoices2.length;j++) {
+                        if (document.getElementsByName(`HONCchoice2-${i}`)[j].checked) {
+                            if (j == 0) {var ynIndex = 1} else {var ynIndex = 0}
+                            SurveyAnswers.HONC[i+HONCChoices1.length] = ynIndex + 1 
+                }}}
+            }
+            
             var x = document.getElementsByClassName("tab");
 
             // Remove current tab when calling next
