@@ -900,6 +900,49 @@
                 }
             }
 
+            if (currentTab == 5) {
+                function calculateScore() {
+                    var emotionalAbuse = 0;
+                    var physicalAbuse = 0;
+                    var sexualAbuse = 0;
+                    var emotionalNeglect = 0;
+                    var physicalNeglect = 0;
+                    var minimizationDenial = 0;
+
+                    // Loop through each question
+                    CTQQuestionsMatrix.forEach(function(question, index) {
+                        var choice = parseInt(document.querySelector(`input[name="choice-${index}"]:checked`).value);
+                        
+                        // Reverse code for items marked with an asterisk
+                        if ([5, 7, 13, 19, 28].includes(index + 1)) {
+                            choice = 6 - choice;
+                        }
+
+                        // Calculate scores for clinical scales
+                        if ([3, 8, 14, 18, 25].includes(index + 1)) {
+                            emotionalAbuse += choice;
+                        } else if ([9, 11, 12, 15, 17].includes(index + 1)) {
+                            physicalAbuse += choice;
+                        } else if ([20, 21, 23, 24, 27].includes(index + 1)) {
+                            sexualAbuse += choice;
+                        } else if ([1, 2, 4, 6, 26].includes(index + 1)) {
+                            physicalNeglect += choice;
+                        }
+
+                        // Calculate scores for minimization/denial scale
+                        if ([10, 16, 22].includes(index + 1)) {
+                            minimizationDenial += (choice === 5) ? 1 : 0;
+                        }
+                    });
+
+                    // Push scores for clinical scales into SurveyAnswers
+                    SurveyAnswers.CTQ.push(emotionalAbuse, physicalAbuse, sexualAbuse, emotionalNeglect, physicalNeglect);
+
+                    // Push score for minimization/denial scale into SurveyAnswers
+                    SurveyAnswers.CTQ.push(minimizationDenial);
+                }
+            }
+
             if (currentTab == 7){
                 var HONCList1 = document.getElementsByName("HONCForm1")
                 var HONCChoices1 = document.getElementsByName("HONCchoice1-1")
