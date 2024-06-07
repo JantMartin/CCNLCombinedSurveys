@@ -1044,37 +1044,65 @@
             // Remove current tab when calling next
             x[currentTab].style.display = "none";
 
-            // Creating a variable with all the experiment checkboxes
-            var ele = document.getElementsByName('inp');
+            // Get all the survey question elements
+            var questions = [];
+            if (currentTab > 0) {
+                questions = document.querySelectorAll(`.tab:nth-child(${currentTab + 1}) .form-control`);
+            }
 
-            // This is the main loop that needs to be looked at
-            for (i=0;i<ele.length-currentTab;i++) {
-                
-                if (ele[currentTab + i].checked) {
-                    currentTab = currentTab + i + 1
-                    x[currentTab].style.display = "block"; 
-                    window.scrollTo(0,0)
-                    break;
-                } 
+            var allQuestionsAnswered = true;
 
-            } 
+            // Check if all questions are answered for survey sections
+            if (questions.length > 0) {
+                questions.forEach(function(question) {
+                    var radios = question.querySelectorAll('input[type="radio"]');
+                    var answered = Array.from(radios).some(radio => radio.checked);
+                    if (!answered) {
+                        allQuestionsAnswered = false;
+                        return; // Exit loop early if any question is unanswered
+                    }
+                });
+            }
 
-            // This portion is to see if any tab is checked ; if not then shows Thank You portion
-            var allDisplayedNone = true;
-            for (var i = 0; i < x.length; i++) {
-                if (x[i].style.display == "block"){
-                    allDisplayedNone = false;
-                    break;
+            // If all questions are answered (or if it's not a survey section), proceed to the next tab
+            if (allQuestionsAnswered || currentTab === 0) {
+                // Creating a variable with all the experiment checkboxes
+                var ele = document.getElementsByName('inp');
+
+                // This is the main loop that needs to be looked at
+                for (i = 0; i < ele.length - currentTab; i++) {
+
+                    if (ele[currentTab + i].checked) {
+                        currentTab = currentTab + i + 1
+                        x[currentTab].style.display = "block";
+                        window.scrollTo(0, 0)
+                        break;
+                    }
+
                 }
+
+                // This portion is to see if any tab is checked ; if not then shows Thank You portion
+                var allDisplayedNone = true;
+                for (var i = 0; i < x.length; i++) {
+                    if (x[i].style.display == "block") {
+                        allDisplayedNone = false;
+                        break;
+                    }
+                }
+
+                if (allDisplayedNone) {
+                    document.getElementsByClassName("ThankYou")[0].style.display = "block"
+                    document.getElementsByClassName("Next")[0].style.display = "none"
+                }
+            } else {
+                // If any question is unanswered, alert the user and prevent moving to the next tab
+                alert('Please answer all questions before proceeding.');
+                // Show the current tab again
+                x[currentTab].style.display = "block";
             }
 
-            if (allDisplayedNone) {
-                document.getElementsByClassName("ThankYou")[0].style.display = "block"
-                document.getElementsByClassName("Next")[0].style.display="none"
-            }
 
         }
-
 
     </script>
 </body>
