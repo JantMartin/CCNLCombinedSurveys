@@ -15,7 +15,7 @@
 		/* Styling the Body element 
 		i.e. Color, Font, Alignment */
 		body {
-			background-color: #9a8fff;
+			background-color: #000080;
 			font-family: Verdana;
 			text-align: center;
 		}
@@ -88,6 +88,8 @@
         .ThankYou {
             display: none
         }
+
+
 	</style>
 </head>
 
@@ -253,7 +255,7 @@
     <script src="QUIC.js"></script>
     <script src="HONC.js"></script>
     <script>
-    
+
         // Generate HTML for each question
 
         // This is where the questions are generated ; the question names are in js and the
@@ -300,8 +302,6 @@
                 </div>
             `;
             document.getElementById('SPSRQID').innerHTML += questionHTML;
-
-
         });
 
         var MFQprompt1HTML = 
@@ -1043,7 +1043,7 @@
 
             // Remove current tab when calling next
             x[currentTab].style.display = "none";
-            
+
             // Creating a variable with all the experiment checkboxes
             var ele = document.getElementsByName('inp');
 
@@ -1056,9 +1056,9 @@
                     window.scrollTo(0,0)
                     break;
                 } 
-            
+
             } 
-            
+
             // This portion is to see if any tab is checked ; if not then shows Thank You portion
             var allDisplayedNone = true;
             for (var i = 0; i < x.length; i++) {
@@ -1067,17 +1067,13 @@
                     break;
                 }
             }
-            
+
             if (allDisplayedNone) {
                 document.getElementsByClassName("ThankYou")[0].style.display = "block"
                 document.getElementsByClassName("Next")[0].style.display="none"
             }
 
-
         }
-
-
-
 
 
     </script>
