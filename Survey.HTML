@@ -965,6 +965,57 @@
                 }
             }
 
+            if (currentTab == 6){
+                function scoreQUICSurvey() {
+                    var parentalMonitoringScore = 0;
+                    var parentalPredictabilityScore = 0;
+                    var parentalEnvironmentScore = 0;
+                    var safetySecurityScore = 0;
+
+                    // Function to check if an item requires reverse coding
+                    function requiresReverseCoding(index) {
+                        return [1, 3, 4, 5, 6, 7, 9, 10, 14, 8, 15, 17, 28].includes(index);
+                    }
+
+                    // Iterate through each question matrix
+                    var questionMatrices = [
+                        QUICQuestionsMatrix1,
+                        QUICQuestionsMatrix2,
+                        QUICQuestionsMatrix3,
+                        QUICQuestionsMatrix4,
+                        QUICQuestionsMatrix5
+                    ];
+
+                    // Calculate scores for each question matrix
+                    questionMatrices.forEach(function(matrix) {
+                        matrix.forEach(function(question, index) {
+                            // Get the value of the radio button for the current question
+                            var choice = parseInt(document.querySelector(`input[name="QUIC-${index + 1}"]:checked`).value);
+                            // Check if reverse coding is required for this item
+                            if (requiresReverseCoding(index + 1)) {
+                                choice = 1 - choice;
+                            }
+                            // Determine which subscale the question belongs to and update the corresponding score
+                            if ([1, 3, 4, 5, 6, 7, 9, 10, 14].includes(index + 1)) {
+                                parentalMonitoringScore += choice;
+                            } else if ([2, 8, 11, 12, 15, 16, 17, 31, 32, 33, 34, 35].includes(index + 1)) {
+                                parentalPredictabilityScore += choice;
+                            } else if ([18, 19, 21, 22, 28, 29, 30].includes(index + 1)) {
+                                parentalEnvironmentScore += choice;
+                            } else if ([23, 24, 25].includes(index + 1)) {
+                                safetySecurityScore += choice;
+                            }
+                        });
+                    });
+
+                    // Sum up the scores
+                    var totalScore = parentalMonitoringScore + parentalPredictabilityScore + parentalEnvironmentScore + safetySecurityScore;
+
+                    // Update SurveyAnswers
+                    SurveyAnswers.QUIC.push(totalScore);
+                }
+    
+            }
 
             if (currentTab == 7){
                 var HONCList1 = document.getElementsByName("HONCForm1")
